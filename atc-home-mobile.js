@@ -34,14 +34,8 @@
 
 // PRODUCT-CARD HOVER IN/OUT
 $('.product-card').click(function() {
-  $(this).find('.product-card__img').addClass('is--onhover-in');
-  $(this).find('.product-card__content').addClass('is--onhover-in');
-  $(this).find('.product-card__content,div,.product-card-title').addClass('is--onhover-in');
-  $(this).find('.product-card__content,div,.product-card-text').addClass('is--onhover-in');
-});
-$('.product-card').click(function() {
-  $(this).find('.product-card__img').removeClass('is--onhover-in');
-  $(this).find('.product-card__content').removeClass('is--onhover-in');
-  $(this).find('.product-card__content,div,.product-card-title').removeClass('is--onhover-in');
-  $(this).find('.product-card__content,div,.product-card-text').removeClass('is--onhover-in');
+  $(this).find('.product-card__img').toggleClass('is--onhover-in');
+  $(this).find('.product-card__content').toggleClass('is--onhover-in');
+  $(this).find('.product-card__content,div.product-card-title').toggleClass('is--onhover-in');
+  $(this).find('.product-card__content,div.product-card-text').toggleClass('is--onhover-in');
 });
