@@ -1,3 +1,22 @@
+// declare onMobile variable
+let onMobile;
+// resizeEvent function
+const resizeEvent = function(){
+  // if viewportWidth width <= 991
+  if(window.innerWidth <= 991){
+    // set onMobile as true
+    onMobile = true;
+  }
+  else{
+    // set onMobile as false
+    onMobile = false;
+  }
+}
+
+resizeEvent(); // run resizeEvent function onload
+
+$(window).on('resize', resizeEvent); // run resizeEvent function onresize
+
 // Car Logos Slider
     $(document).ready(function(){
       $(".car-logos-slider").slick({
@@ -30,19 +49,31 @@
       });
     });
 
-// PRODUCT-CARD HOVER IN/OUT
-$('.product-card').mouseenter(function() {
-	$(this).find('.product-card__img').addClass('is--onhover-in');
-	$(this).find('.product-card__content').addClass('is--onhover-in');
-	$(this).find('.product-card__content,div,.product-card-title').addClass('is--onhover-in');
-	$(this).find('.product-card__content,div,.product-card-text').addClass('is--onhover-in');
-});
-$('.product-card').mouseleave(function() {
-	$(this).find('.product-card__img').removeClass('is--onhover-in');
-	$(this).find('.product-card__content').removeClass('is--onhover-in');
-	$(this).find('.product-card__content,div,.product-card-title').removeClass('is--onhover-in');
-	$(this).find('.product-card__content,div,.product-card-text').removeClass('is--onhover-in');
-});
+  // if onMobile is false
+  if (!onMobile) {
+    // enable desktop script
+    $('.product-card').mouseenter(function() {
+      $(this).find('.product-card__img').addClass('is--onhover-in');
+      $(this).find('.product-card__content').addClass('is--onhover-in');
+      $(this).find('.product-card__content,div,.product-card-title').addClass('is--onhover-in');
+      $(this).find('.product-card__content,div,.product-card-text').addClass('is--onhover-in');
+    });
+    $('.product-card').mouseleave(function() {
+      $(this).find('.product-card__img').removeClass('is--onhover-in');
+      $(this).find('.product-card__content').removeClass('is--onhover-in');
+      $(this).find('.product-card__content,div,.product-card-title').removeClass('is--onhover-in');
+      $(this).find('.product-card__content,div,.product-card-text').removeClass('is--onhover-in');
+    });
+  }
+  else { // if onMobile is true
+    // enable mobile script
+    $('.product-card').click(function() {
+      $(this).find('.product-card__img').toggleClass('is--onhover-in');
+      $(this).find('.product-card__content').toggleClass('is--onhover-in');
+      $(this).find('.product-card__content,div.product-card-title').toggleClass('is--onhover-in');
+      $(this).find('.product-card__content,div.product-card-text').toggleClass('is--onhover-in');
+  });
+  } 
 
 // HERO Interactive Video
       // Declare end
